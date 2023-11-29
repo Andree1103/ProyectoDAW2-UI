@@ -1,0 +1,22 @@
+<mat-toolbar color="primary">
+  <span>
+    QuickApp
+  </span>
+
+  <span class="space-buttons"></span>
+  <button *ngIf="! isLoggedIn()" routerLink="/login" mat-raised-button color="primary">
+    Login
+  </button>
+  <button *ngIf="isLoggedIn()" (click)="logout()" mat-raised-button color="warn">
+    Logout
+  </button>
+</mat-toolbar>
+
+<mat-toolbar color="primary" *ngIf="isLoggedIn()" class="div-header">
+  <button mat-raised-button routerLink="/">Inicio</button>
+  <button *ngIf="!isAdmin()" mat-raised-button routerLink="/cart">Carrito</button>
+  <button *ngIf="!isAdmin()" mat-raised-button routerLink="/myOrders">Mis Ordenes</button>
+  <button *ngIf="isAdmin()" mat-raised-button routerLink="/addNewProduct">Agregar Nuevo Producto</button>
+  <button *ngIf="isAdmin()" mat-raised-button routerLink="/showProductDetails">Detalle de Productos</button>
+  <button *ngIf="isAdmin()" mat-raised-button routerLink="/orderInformation">Información de las Ordenes</button>
+</mat-toolbar>
